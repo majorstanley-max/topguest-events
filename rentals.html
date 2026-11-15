@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Rentals | Topguest Events</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --deep:#390817;
+  --burgundy:#570d22;
+  --cream:#f6ebdd;
+  --gold:#c9a24b;
+  --blush:#e7bdc9;
+}
+
+body{
+  background:var(--burgundy);
+  color:#fff;
+  font-family:Arial,sans-serif;
+}
+
+.page{
+  max-width:1250px;
+  margin:auto;
+  padding:55px 30px 80px;
+}
+
+.back{
+  color:#e7bd91;
+  text-decoration:none;
+  font-size:13px;
+}
+
+header{margin:35px 0}
+
+header span{
+  color:#e7bd91;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+}
+
+header h1{
+  font-family:Georgia,serif;
+  font-size:clamp(38px,6vw,62px);
+  font-weight:normal;
+  margin:14px 0;
+}
+
+header p{
+  color:#e5cbd1;
+  line-height:1.8;
+  max-width:600px;
+  font-size:14px;
+}
+
+.tools{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  align-items:center;
+  margin:30px 0 22px;
+}
+
+#q{
+  background:rgba(246,235,221,.08);
+  border:1px solid rgba(246,235,221,.25);
+  border-radius:999px;
+  color:var(--cream);
+  padding:11px 18px;
+  font:inherit;
+  font-size:13px;
+  min-width:min(260px,100%);
+}
+
+#q::placeholder{color:#e5cbd1}
+
+.cats{display:flex;gap:8px;flex-wrap:wrap}
+
+.cat{
+  background:none;
+  border:1px solid rgba(246,235,221,.3);
+  color:var(--cream);
+  border-radius:999px;
+  padding:8px 16px;
+  font:inherit;
+  font-size:12px;
+  cursor:pointer;
+}
+
+.cat.on{
+  background:var(--cream);
+  color:var(--deep);
+  border-color:var(--cream);
+}
+
+.mk{
+  display:grid;
+  gap:18px;
+  grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+}
+
+.prod{
+  background:rgba(246,235,221,.07);
+  border:1px solid rgba(201,162,75,.35);
+  border-radius:18px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  transition:transform .3s,border-color .3s;
+}
+
+.prod:hover{
+  transform:translateY(-4px);
+  border-color:var(--gold);
+}
+
+.pimg{position:relative;aspect-ratio:4/3;background:#390817}
+.pimg img,.pimg svg{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.pimg em{
+  position:absolute;
+  left:12px;
+  top:12px;
+  background:var(--cream);
+  color:var(--deep);
+  font-size:11px;
+  font-style:normal;
+  font-weight:600;
+  padding:5px 10px;
+  border-radius:999px;
+}
+
+.pbody{
+  padding:16px;
+  display:grid;
+  gap:8px;
+}
+
+.pbody span{
+  font-size:10px;
+  opacity:.7;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+
+.pbody h3{font-size:17px;font-weight:600}
+.pbody p{font-size:13px;color:#e7bdc9}
+.price{color:#e7bd91;font-weight:bold;font-size:16px}
+.rent-btn{
+  display:block;
+  margin-top:8px;
+  padding:11px;
+  background:var(--cream);
+  color:var(--deep);
+  text-align:center;
+  text-decoration:none;
+  border-radius:8px;
+  font-size:13px;
+  font-weight:bold;
+  transition:background .2s;
+}
+
+.rent-btn:hover{
+  background:var(--gold);
+}
+
+.empty{
+  grid-column:1/-1;
+  padding:35px;
+  text-align:center;
+  color:#e7bdc9;
+  line-height:1.8;
+}
+
+@media(max-width:600px){
+  .page{padding:35px 17px 60px}
+  .mk{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .pbody{padding:12px}
+  .pbody h3{font-size:14px}
+}
+</style>
+</head>
+
+<body>
+<main class="page">
+
+<a href="index.html#work" class="back">← Back to homepage</a>
+
+<header>
+  <span>Topguest Events · Rental Collection</span>
+  <h1>Find the perfect pieces for your event.</h1>
+  <p>
+    Explore our rental collection of beautiful event essentials,
+    from florals and elegant stands to seating, tableware and
+    backdrops. Check availability and find what your celebration needs.
+  </p>
+</header>
+
+<div class="tools">
+  <input id="q" type="search" placeholder="Search rental items...">
+  <div class="cats" id="cats"></div>
+</div>
+
+<section class="mk" id="products">
+  <div class="empty">Loading rental collection...</div>
+</section>
+
+</main>
+
+<script src="js/store.js"></script>
+
+<script>
+const products = document.getElementById('products');
+const search = document.getElementById('q');
+const cats = document.getElementById('cats');
+
+let inventory = [];
+let activeCategory = 'All';
+
+function renderCategories(){
+  const categories = ['All', ...new Set(inventory.map(item => item.category))];
+
+  cats.innerHTML = categories.map(category => `
+    <button class="cat ${category === activeCategory ? 'on' : ''}"
+      data-category="${esc(category)}">
+      ${esc(category)}
+    </button>
+  `).join('');
+
+  cats.querySelectorAll('.cat').forEach(button => {
+    button.addEventListener('click', () => {
+      activeCategory = button.dataset.category;
+      renderCategories();
+      renderProducts();
+    });
+  });
+}
+
+function renderProducts(){
+  const term = search.value.trim().toLowerCase();
+
+  const filtered = inventory.filter(item => {
+    const available = avail(item);
+    const matchesSearch =
+      item.name.toLowerCase().includes(term) ||
+      item.category.toLowerCase().includes(term);
+
+    const matchesCategory =
+      activeCategory === 'All' || item.category === activeCategory;
+
+    return available > 0 && matchesSearch && matchesCategory;
+  });
+
+  if(!filtered.length){
+    products.innerHTML = `
+      <div class="empty">
+        No available rentals match your search right now.
+        <br>Please try another item or category.
+      </div>`;
+    return;
+  }
+
+  products.innerHTML = filtered.map(item => `
+    <article class="prod">
+      <div class="pimg">
+        ${thumb(item)}
+    
+      </div>
+      <div class="pbody">
+        <span>${esc(item.category)}</span>
+        <h3>${esc(item.name)}</h3>
+        <p>${avail(item)} pieces available</p>
+        <div class="price">${money(item.price)}</div>
+
+<a class="rent-btn"
+   href="https://wa.me/2348166120105?text=${encodeURIComponent(
+     `Hello Topguest Events, I would like to rent ${item.name} (${item.category}). Please confirm availability and booking details.`
+   )}"
+   target="_blank"
+   rel="noopener noreferrer">
+   Request to Rent
+</a>
+      </div>
+    </article>
+  `).join('');
+}
+
+async function loadRentals(){
+  inventory = await Store.list();
+  renderCategories();
+  renderProducts();
+}
+
+search.addEventListener('input', renderProducts);
+loadRentals();
+</script>
+
+</body>
+</html>

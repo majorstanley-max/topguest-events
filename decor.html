@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Decor Portfolio | Topguest Events</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #570d22;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+
+    .decor-page {
+      max-width: 1250px;
+      margin: auto;
+      padding: 55px 30px 80px;
+    }
+
+    .back-link {
+      display: inline-block;
+      color: #e7bd91;
+      text-decoration: none;
+      font-size: 14px;
+      margin-bottom: 35px;
+    }
+
+    .heading {
+      margin-bottom: 45px;
+    }
+
+    .heading span {
+      color: #e7bd91;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 11px;
+    }
+
+    .heading h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(38px, 6vw, 65px);
+      font-weight: normal;
+      margin: 15px 0;
+    }
+
+    .heading p {
+      color: #e7cbd2;
+      line-height: 1.8;
+      max-width: 550px;
+      font-size: 15px;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 30px;
+      align-items: start;
+    }
+
+    .video-card {
+      background: #390817;
+      border: 1px solid rgba(231, 189, 145, .35);
+      border-radius: 18px;
+      padding: 18px;
+      overflow: hidden;
+    }
+
+    .video-card.featured {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 25px;
+      align-items: center;
+    }
+
+    .video-frame {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: 12px;
+      background: #21040d;
+      min-height: 350px;
+    }
+
+    .video-frame blockquote.instagram-media {
+      margin: 0 auto !important;
+      min-width: 0 !important;
+      max-width: 540px !important;
+      width: 100% !important;
+    }
+
+    .video-copy {
+      padding: 12px 5px;
+    }
+
+    .video-copy span {
+      color: #e7bd91;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .video-copy h2 {
+      font-family: Georgia, serif;
+      font-size: 27px;
+      font-weight: normal;
+      margin: 13px 0;
+    }
+
+    .video-copy p {
+      color: #e5cbd1;
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    .instagram-link {
+      display: inline-block;
+      margin-top: 20px;
+      color: #e7bd91;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .instagram-link:hover,
+    .back-link:hover {
+      color: white;
+    }
+
+    @media (max-width: 760px) {
+      .decor-page {
+        padding: 35px 17px 60px;
+      }
+
+      .video-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+      }
+
+      .video-card.featured {
+        grid-column: auto;
+        grid-template-columns: 1fr;
+      }
+
+      .video-frame {
+        min-height: 300px;
+      }
+
+      .video-copy h2 {
+        font-size: 24px;
+      }
+    }
+    /* ADDITIONAL DECOR PORTFOLIO GALLERY */
+.photo-gallery {
+  margin-top: 75px;
+}
+
+.gallery-heading {
+  margin-bottom: 30px;
+}
+
+.gallery-heading span {
+  color: #e7bd91;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.gallery-heading h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(30px, 5vw, 45px);
+  font-weight: normal;
+  margin-top: 12px;
+}
+
+.gallery-heading p {
+  color: #e5cbd1;
+  margin-top: 12px;
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.photo-card {
+  background: #390817;
+  border: 1px solid rgba(231, 189, 145, .35);
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.photo-card img {
+  display: block;
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+}
+
+.photo-caption {
+  padding: 20px;
+}
+
+.photo-caption span {
+  color: #e7bd91;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.photo-caption h3 {
+  font-family: Georgia, serif;
+  font-size: 23px;
+  font-weight: normal;
+  margin-top: 9px;
+}
+
+@media (max-width: 760px) {
+  .photo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-card img {
+    height: 350px;
+  }
+}
+  </style>
+</head>
+
+<body>
+
+  <main class="decor-page">
+
+    <a href="index.html#work" class="back-link">← Back to homepage</a>
+
+    <header class="heading">
+      <span>Topguest Events · Our Portfolio</span>
+      <h1>Every celebration tells a story.</h1>
+      <p>
+        From intimate birthday celebrations to beautiful weddings
+        and outdoor experiences, explore the moments we've helped
+        bring to life through thoughtful event styling and decor.
+      </p>
+    </header>
+
+    <section class="video-grid">
+
+      <!-- BIRTHDAY -->
+      <article class="video-card featured">
+        <div class="video-frame">
+          <blockquote class="instagram-media"
+            data-instgrm-permalink="https://www.instagram.com/reel/DfoawVjos3h/"
+            data-instgrm-version="14">
+          </blockquote>
+        </div>
+
+        <div class="video-copy">
+          <span>01 · Birthday Celebration</span>
+          <h2>A birthday worth remembering</h2>
+          <p>
+            Beautiful details, elegant styling and an atmosphere
+            designed to make a special birthday unforgettable.
+            Every element comes together to create a celebration
+            filled with warmth, beauty and lasting memories.
+          </p>
+          <a class="instagram-link"
+             href="https://www.instagram.com/reel/DfoawVjos3h/"
+             target="_blank" rel="noopener">
+            Watch on Instagram ↗
+          </a>
+        </div>
+      </article>
+
+      <!-- WEDDING -->
+      <article class="video-card">
+        <div class="video-frame">
+          <blockquote class="instagram-media"
+            data-instgrm-permalink="https://www.instagram.com/reel/Dev1z84Ikqj/"
+            data-instgrm-version="14">
+          </blockquote>
+        </div>
+
+        <div class="video-copy">
+          <span>02 · Wedding Celebration</span>
+          <h2>A beautiful beginning</h2>
+          <p>
+            A romantic wedding setting, thoughtfully styled to
+            celebrate love. From the decor details to the overall
+            ambience, every corner adds to the magic of the day.
+          </p>
+          <a class="instagram-link"
+             href="https://www.instagram.com/reel/Dev1z84Ikqj/"
+             target="_blank" rel="noopener">
+            Watch on Instagram ↗
+          </a>
+        </div>
+      </article>
+
+      <!-- CLIENT REVIEW -->
+      <article class="video-card">
+        <div class="video-frame">
+          <blockquote class="instagram-media"
+            data-instgrm-permalink="https://www.instagram.com/reel/DeJlTf3okKt/"
+            data-instgrm-version="14">
+          </blockquote>
+        </div>
+
+        <div class="video-copy">
+          <span>03 · Client Review</span>
+          <h2>When the work speaks for itself</h2>
+          <p>
+            Nothing means more than a happy client. Hear directly
+            from a client about their experience and the care,
+            creativity and attention to detail behind the finished work.
+          </p>
+          <a class="instagram-link"
+             href="https://www.instagram.com/reel/DeJlTf3okKt/"
+             target="_blank" rel="noopener">
+            Watch on Instagram ↗
+          </a>
+        </div>
+      </article>
+
+      <!-- WEDDING TWO -->
+      <article class="video-card">
+        <div class="video-frame">
+          <blockquote class="instagram-media"
+            data-instgrm-permalink="https://www.instagram.com/reel/Dd_IB-kqrGE/"
+            data-instgrm-version="14">
+          </blockquote>
+        </div>
+
+        <div class="video-copy">
+          <span>04 · Wedding Celebration</span>
+          <h2>Elegance in every detail</h2>
+          <p>
+            Another beautiful wedding brought to life with
+            carefully considered styling, stunning arrangements
+            and an atmosphere made for unforgettable memories.
+          </p>
+          <a class="instagram-link"
+             href="https://www.instagram.com/reel/Dd_IB-kqrGE/"
+             target="_blank" rel="noopener">
+            Watch on Instagram ↗
+          </a>
+        </div>
+      </article>
+
+      <!-- OUTDOOR EVENT -->
+      <article class="video-card">
+        <div class="video-frame">
+          <blockquote class="instagram-media"
+            data-instgrm-permalink="https://www.instagram.com/reel/Dd3WvrtoSpc/"
+            data-instgrm-version="14">
+          </blockquote>
+        </div>
+
+        <div class="video-copy">
+          <span>05 · Outdoor Event</span>
+          <h2>Celebrations beyond four walls</h2>
+          <p>
+            Open-air celebrations with beautiful styling and
+            a setting that makes the experience special.
+            We bring creativity and thoughtful design to
+            events in every kind of space.
+          </p>
+          <a class="instagram-link"
+             href="https://www.instagram.com/reel/Dd3WvrtoSpc/"
+             target="_blank" rel="noopener">
+            Watch on Instagram ↗
+          </a>
+        </div>
+      </article>
+
+      <div class="video-embed">
+  <blockquote
+    class="instagram-media"
+    data-instgrm-permalink="https://www.instagram.com/reel/DVqTwgsDCjg/"
+    data-instgrm-version="14"
+    style="width:100%; max-width:540px; margin:0 auto;">
+  </blockquote>
+</div>
+      <div class="video-copy">
+  <span>06 · Client Testimonial</span>
+
+  <h2>A Happy Client, A Beautiful Experience</h2>
+
+  <p>
+    There's nothing more rewarding than hearing from a
+    satisfied client. Discover what it was like working
+    with Topguest Events and the experience behind the
+    beautiful memories we helped create.
+  </p>
+
+  <a class="instagram-link"
+     href="https://www.instagram.com/reel/DVqTwgsDCjg/"
+     target="_blank" rel="noopener">
+    Watch Client Review ↗
+  </a>
+</div>
+
+    </section>
+    <!-- ADDITIONAL DECOR PORTFOLIO -->
+<section class="photo-gallery">
+
+  <header class="gallery-heading">
+    <span>More of our creativity</span>
+    <h2>Beautiful details. Unforgettable moments.</h2>
+    <p>
+      A glimpse into the beautiful spaces, thoughtful styling
+      and creative details that make every celebration special.
+    </p>
+  </header>
+
+  <div class="photo-grid">
+
+    <article class="photo-card">
+      <img src="assets/decor-1.jpg" alt="Pink floral luxury reception">
+      <div class="photo-caption">
+        <span>01 · Floral Styling</span>
+        <h3>A table dressed in elegance</h3>
+      </div>
+    </article>
+
+    <article class="photo-card">
+      <img src="assets/decor-2.jpg" alt="Pink balloon event backdrop">
+      <div class="photo-caption">
+        <span>02 · Balloon Styling</span>
+        <h3>A statement worth celebrating</h3>
+      </div>
+    </article>
+
+    <article class="photo-card">
+      <img src="assets/decor-3.jpg" alt="Luxury event table setting">
+      <div class="photo-caption">
+        <span>03 · Table Styling</span>
+        <h3>A stage made to impress</h3>
+      </div>
+    </article>
+
+    <article class="photo-card">
+      <img src="assets/decor-4.jpg" alt="Luxury event stage decoration">
+      <div class="photo-caption">
+        <span>04 · Event Design</span>
+        <h3>Elegance at every place setting</h3>
+      </div>
+    </article>
+
+  </div>
+</section>
+  </main>
+
+  <script async src="https://www.instagram.com/embed.js"></script>
+  <script async src="https://www.instagram.com/embed.js"></script>
+</body>
+</html>

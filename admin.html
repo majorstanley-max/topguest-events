@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Inventory | Topguest Events Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--wine:#5C0A1E;--deep:#3E0613;--cream:#F6EBDD;--gold:#C9A24B;--ink:#2A1017;--line:#E6DCD0}
+*{box-sizing:border-box}
+body{margin:0;background:#F4EFE8;color:var(--ink);font:14px/1.5 "Instrument Sans",system-ui,sans-serif}
+button,input,select{font:inherit}
+.side{position:fixed;inset:0 auto 0 0;width:236px;background:var(--deep);color:var(--cream);padding:22px 16px;display:flex;flex-direction:column;gap:26px}
+.logo{background:var(--cream);border-radius:10px;padding:8px 12px;display:block}.logo img{display:block;width:100%;height:auto}
+.side nav{display:grid;gap:4px}
+.side nav a{color:inherit;text-decoration:none;padding:10px 12px;border-radius:10px;font-weight:500;opacity:.85}
+.side nav a.on{background:rgba(246,235,221,.14);opacity:1}.side nav a:hover{opacity:1}
+.adm{margin:auto 0 0;font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.55}
+.main{margin-left:236px;padding:30px clamp(16px,3vw,40px) 70px}
+.head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
+h1{margin:0;font-size:28px;letter-spacing:-.02em}.head p{margin:4px 0 0;color:#6B5A5E;max-width:52ch}
+.acts{display:flex;gap:10px}
+.btn{background:var(--wine);color:#fff;border:1px solid var(--wine);border-radius:10px;padding:10px 18px;font-weight:600;cursor:pointer}
+.btn:hover{background:var(--deep)}.btn.ghost{background:#fff;color:var(--ink);border-color:#D8CBBD}.btn.ghost:hover{background:#F8F3EC}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:26px 0 20px}
+.kpi{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.kpi span{color:#6B5A5E;font-size:12.5px}.kpi b{display:block;font-size:30px;line-height:1.2;letter-spacing:-.02em}
+.kpi:nth-child(5) b{color:#A12727}
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.tools input,.tools select{background:#fff;border:1px solid #D8CBBD;border-radius:10px;padding:10px 14px}
+.tools input{flex:1;min-width:220px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:1000px}
+th{text-align:left;font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:#7A686C;padding:12px 14px;background:#FAF6F0;border-bottom:1px solid var(--line);font-weight:600}
+td{padding:12px 14px;border-bottom:1px solid #F0E8DE;vertical-align:middle}
+tr:last-child td{border-bottom:0}tbody tr:hover{background:#FCFAF7}
+.r{text-align:right}
+.it{display:flex;gap:12px;align-items:center}.it small{display:block;color:#8A7A7D;font-size:12px}
+.th{width:42px;height:42px;border-radius:10px;overflow:hidden;flex:none;background:#eee}
+.th img,.th svg{width:100%;height:100%;object-fit:cover;display:block}
+.seg{display:flex;width:110px;height:7px;border-radius:7px;overflow:hidden;background:#EDE4D9}
+.bd{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:600}
+.bd.ok{background:#E3F0E1;color:#2D6A2B}.bd.warn{background:#FFF0D1;color:#8A5A00}.bd.bad{background:#FBE0E0;color:#A12727}
+.ac{white-space:nowrap;text-align:right}
+.ac button{background:none;border:0;color:var(--wine);font-weight:600;font-size:12.5px;padding:4px 7px;cursor:pointer;border-radius:6px}
+.ac button:hover{background:#F6EDEF}.ac .dg{color:#A12727}
+.none{padding:34px;text-align:center;color:#7A686C;margin:0}
+dialog{border:0;border-radius:18px;padding:26px;width:min(580px,92vw);box-shadow:0 30px 80px rgba(0,0,0,.35)}
+dialog::backdrop{background:rgba(40,5,15,.55)}
+dialog h2{margin:0 0 18px;font-size:22px}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:14px}.full{grid-column:1/-1}
+label{display:grid;gap:5px;font-weight:600;font-size:12.5px;color:#4A3A3E}
+label input{border:1px solid #D8CBBD;border-radius:10px;padding:10px 12px;font-weight:400;font-size:14px;color:var(--ink);width:100%}
+label input:focus,.tools input:focus,.tools select:focus{outline:2px solid var(--gold);outline-offset:1px}
+.err{color:#A12727;min-height:20px;margin:12px 0 0;font-size:13px}
+.fa{display:flex;justify-content:flex-end;gap:10px;margin-top:8px}
+#toast{position:fixed;bottom:24px;left:50%;translate:-50% 30px;background:var(--deep);color:#fff;padding:11px 20px;border-radius:999px;opacity:0;pointer-events:none;transition:.3s}
+#toast.on{opacity:1;translate:-50% 0}
+@media(max-width:860px){.side{position:static;width:auto;flex-direction:row;align-items:center;flex-wrap:wrap;gap:14px}.logo{width:130px}.side nav{display:flex}.adm{display:none}.main{margin-left:0}}
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+<aside class="side">
+ <a class="logo" href="admin.html"><img src="assets/logo.png" alt="Topguest Events"></a>
+ <nav><a class="on" href="admin.html">Inventory</a><a href="index.html#rentals">View website ↗</a></nav>
+ <p class="adm">Admin area</p>
+</aside>
+
+<main class="main">
+ <header class="head">
+  <div><h1>Inventory</h1><p>Every rental piece in one place: what’s on the shelf, out with clients, and waiting for delivery. Changes appear on the website’s Rentals section.</p></div>
+  <div class="acts"><button class="btn ghost" id="exp">Export CSV</button><button class="btn" id="add">+ Add item</button></div>
+ </header>
+ <section class="kpis" id="kpis"></section>
+ <div class="tools">
+  <input id="s" type="search" placeholder="Search name, SKU or category" aria-label="Search inventory">
+  <select id="fc" aria-label="Category"></select>
+  <select id="fs" aria-label="Status"><option value="">All statuses</option><option>In stock</option><option>Low stock</option><option>Out of stock</option></select>
+ </div>
+ <div class="card tw">
+  <table>
+   <thead><tr><th>Item</th><th>Category</th><th class="r">Price / day</th><th class="r">Total</th><th class="r">Available</th><th class="r">Out</th><th class="r">Pending</th><th>Stock</th><th>Status</th><th></th></tr></thead>
+   <tbody id="tb"></tbody>
+  </table>
+  <p class="none" id="none" hidden>No items match your filters.</p>
+ </div>
+</main>
+
+<dialog id="dlg">
+ <form id="f">
+  <h2 id="dt">Add item</h2>
+  <div class="fg">
+   <label class="full">Item name<input name="name" required maxlength="80"></label>
+   <label>Category<input name="category" required list="cl" maxlength="40"><datalist id="cl"></datalist></label>
+   <label>SKU<input name="sku" maxlength="20"></label>
+   <label>Price per day<input name="price" type="number" min="0" step="any" required></label>
+   <label>Total stock<input name="total" type="number" min="0" step="1" required></label>
+   <label>Out on rental<input name="out" type="number" min="0" step="1" value="0"></label>
+   <label>Pending delivery<input name="pending" type="number" min="0" step="1" value="0"></label>
+   <label class="full">Photo (optional)<input type="file" id="ph" accept="image/*"></label>
+  </div>
+  <p class="err" id="err" role="alert"></p>
+  <div class="fa"><button type="button" class="btn ghost" id="cx">Cancel</button><button class="btn">Save item</button></div>
+ </form>
+</dialog>
+<div id="toast" role="status"></div>
+
+<script src="js/store.js"></script>
+<script>
+// TODO(auth): protect this page. Replace with a real session check and redirect to your login page.
+function requireAuth(){return true}
+if(!requireAuth())location.href='login.html';
+
+const $=s=>document.querySelector(s);
+let items=[],editing=null,photo;
+const status=i=>{const a=avail(i);return a===0?['Out of stock','bad']:(a<=3||a/i.total<.15)?['Low stock','warn']:['In stock','ok']};
+let tt;function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),2200)}
+
+async function load(){items=await Store.list();render()}
+function render(){
+ const sum=k=>items.reduce((s,i)=>s+i[k],0),A=items.reduce((s,i)=>s+avail(i),0),low=items.filter(i=>status(i)[1]!=='ok').length;
+ $('#kpis').innerHTML=[['Total pieces',sum('total')],['Available now',A],['Out on rental',sum('out')],['Pending delivery',sum('pending')],['Needs restock',low]].map(([l,v])=>`<div class="kpi"><span>${l}</span><b>${v.toLocaleString()}</b></div>`).join('');
+ const cats=[...new Set(items.map(i=>i.category))].sort(),cur=$('#fc').value;
+ $('#fc').innerHTML='<option value="">All categories</option>'+cats.map(c=>`<option>${esc(c)}</option>`).join('');$('#fc').value=cur;
+ $('#cl').innerHTML=cats.map(c=>`<option value="${esc(c)}">`).join('');
+ const t=$('#s').value.trim().toLowerCase(),c=$('#fc').value,st=$('#fs').value;
+ const list=items.filter(i=>(!c||i.category===c)&&(!st||status(i)[0]===st)&&(!t||(i.name+' '+i.sku+' '+i.category).toLowerCase().includes(t)));
+ $('#tb').innerHTML=list.map(i=>{const a=avail(i),[sl,sc]=status(i),p=n=>i.total?n/i.total*100:0;
+  return `<tr><td><div class="it"><div class="th">${thumb(i)}</div><div><b>${esc(i.name)}</b><small>${esc(i.sku||'No SKU')}</small></div></div></td><td>${esc(i.category)}</td><td class="r">${money(i.price)}</td><td class="r">${i.total}</td><td class="r"><b>${a}</b></td><td class="r">${i.out}</td><td class="r">${i.pending}</td><td><div class="seg"><i style="width:${p(a)}%;background:#C9A24B"></i><i style="width:${p(i.out)}%;background:#C45A6E"></i><i style="width:${p(i.pending)}%;background:#D9CBBE"></i></div></td><td><span class="bd ${sc}">${sl}</span></td><td class="ac"><button data-a="out" data-id="${i.id}">Rent out</button><button data-a="ret" data-id="${i.id}">Return</button><button data-a="edit" data-id="${i.id}">Edit</button><button class="dg" data-a="del" data-id="${i.id}">Delete</button></td></tr>`}).join('');
+ $('#none').hidden=list.length>0;
+}
+['#s','#fc','#fs'].forEach(s=>$(s).addEventListener('input',render));
+
+$('#tb').addEventListener('click',async e=>{
+ const b=e.target.closest('button');if(!b)return;
+ const it=items.find(i=>i.id===b.dataset.id);if(!it)return;const a=b.dataset.a;
+ if(a==='edit')return openForm(it);
+ if(a==='del'){if(confirm(`Delete “${it.name}”? This can’t be undone.`)){await Store.remove(it.id);toast('Item deleted');load()}return}
+ if(a==='out'){if(avail(it)<1)return toast('No pieces available to send out');await Store.update(it.id,{out:it.out+1})}
+ if(a==='ret'){if(it.out<1)return toast('Nothing is out on rental');await Store.update(it.id,{out:it.out-1})}
+ load();
+});
+
+const dlg=$('#dlg'),f=$('#f');
+function openForm(it){
+ editing=it;photo=undefined;f.reset();$('#err').textContent='';$('#dt').textContent=it?'Edit item':'Add item';
+ if(it)for(const k of ['name','category','sku','price','total','out','pending'])f.elements[k].value=it[k]??'';
+ dlg.showModal();
+}
+$('#add').onclick=()=>openForm(null);
+$('#cx').onclick=()=>dlg.close();
+$('#ph').onchange=e=>{
+ const file=e.target.files[0];if(!file)return;const img=new Image();
+ img.onload=()=>{const s=Math.min(1,480/Math.max(img.width,img.height)),c=document.createElement('canvas');c.width=img.width*s;c.height=img.height*s;c.getContext('2d').drawImage(img,0,0,c.width,c.height);photo=c.toDataURL('image/jpeg',.8);URL.revokeObjectURL(img.src)};
+ img.src=URL.createObjectURL(file);
+};
+f.onsubmit=async e=>{
+ e.preventDefault();const v=Object.fromEntries(new FormData(f));
+ const d={name:v.name.trim(),category:v.category.trim(),sku:v.sku.trim(),price:+v.price,total:+v.total,out:+v.out||0,pending:+v.pending||0};
+ if(d.out+d.pending>d.total){$('#err').textContent='Out on rental plus pending delivery can’t be more than total stock.';return}
+ if(photo!==undefined)d.image=photo;
+ try{
+  const was=editing;
+  if(was)await Store.update(was.id,d);else await Store.add({image:'',...d});
+  dlg.close();toast(was?'Item updated':'Item added');load();
+ }catch(x){$('#err').textContent='Could not save. The photo may be too large, try a smaller one.'}
+};
+
+$('#exp').onclick=()=>{
+ const q=v=>`"${String(v).replace(/"/g,'""')}"`,h=['Name','SKU','Category','Price per day','Total','Available','Out on rental','Pending delivery'];
+ const rows=items.map(i=>[i.name,i.sku,i.category,i.price,i.total,avail(i),i.out,i.pending].map(q).join(','));
+ const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([[h.map(q).join(','),...rows].join('\n')],{type:'text/csv'}));a.download='topguest-inventory.csv';a.click();
+};
+addEventListener('storage',load);
+load();
+</script>
+</body>
+</html>

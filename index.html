@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Topguest Events | Decor, Rentals, Training</title>
+<link rel="icon" type="image/png" href="assets/topguest-favicon.png">
+<meta name="description" content="Topguest Events offers professional event decoration, event rentals, and practical event styling training in Ikorodu, Lagos, Nigeria.">
+
+<meta name="robots" content="index, follow">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Topguest Events | Decor, Rentals, Training">
+<meta property="og:description" content="Beautiful event styling, quality rentals, and practical event training by Topguest Events.">
+<meta property="og:image" content="https://YOUR-DOMAIN.com/assets/where-events-bloom.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+
+<style>
+@font-face {
+    font-family: "GilliganShutter";
+    src: url("assets/fonts/gilligan-shutter/gilligan_shutter.woff") format("woff"),
+         url("assets/fonts/gilligan-shutter/GilliganShutter.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+.hero-serif {
+    font-family: "GilliganShutter", "Yellowtail", cursive;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+    line-height: 1.15;
+    padding: 0.1em 0.15em;
+}
+
+:root{--wine:#5C0A1E;--deep:#3E0613;--cream:#F6EBDD;--gold:#C9A24B;--blush:#E8B4B8;--sage:#7C9070;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:20px}
+body{margin:0;background:var(--wine);color:var(--cream);font:400 16px/1.65 "Instrument Sans",system-ui,sans-serif;overflow-x:hidden}
+h1,h2{font-weight:600;line-height:1;margin:0;letter-spacing:-.02em}
+h2{font-size:clamp(34px,5.4vw,64px)}
+h2 i,h1 i{font-style:italic;font-weight:400}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+.pill{display:inline-flex;align-items:center;gap:14px;background:var(--cream);color:var(--deep);padding:7px 7px 7px 20px;border-radius:999px;font-size:13px;font-weight:600;text-decoration:none;transition:background .25s}
+.pill:hover{background:#fff}
+.pill.sm{font-size:12px;padding:5px 5px 5px 16px}
+.dot{width:28px;height:28px;border-radius:50%;background:var(--deep) radial-gradient(circle,var(--cream) 1.3px,transparent 1.7px) center/7px 7px;flex:none}
+.sm .dot{width:24px;height:24px}
+.pill.out{background:transparent;color:var(--cream);box-shadow:inset 0 0 0 1px rgba(246,235,221,.5)}
+.pill.out .dot{background-color:var(--cream);background-image:radial-gradient(circle,var(--deep) 1.3px,transparent 1.7px)}
+
+/* loader */
+#ld{position:fixed;inset:0;z-index:99;background:var(--deep);display:grid;place-items:center;transition:transform 1.1s cubic-bezier(.76,0,.24,1)}
+#ld.out{transform:translateY(-101%)}
+.frame{position:relative;width:min(340px,80vw);aspect-ratio:4/3;display:grid;place-items:center;animation:frame 1.2s .1s cubic-bezier(.2,.8,.2,1) both}
+.frame::before{content:"";position:absolute;inset:0;border:1px solid var(--gold);border-radius:4px}
+.plate{background:var(--cream);border-radius:6px;padding:14px 18px;width:78%;animation:plate .9s .9s both}
+.plate img{display:block;width:100%}
+@keyframes frame{from{clip-path:inset(0 100% 100% 0)}to{clip-path:inset(0)}}
+@keyframes plate{from{opacity:0;scale:.9}to{opacity:1;scale:1}}
+
+/* hero card */
+.hero{position:relative;margin:10px;border-radius:30px 30px 30px 30px;min-height:max(660px,92svh);overflow:hidden;background:radial-gradient(70% 60% at 50% 105%,#B23A58 0%,rgba(178,58,88,0) 70%),radial-gradient(90% 70% at 20% 0%,#7A1330 0%,transparent 70%),linear-gradient(#4A0816,#6D1228)}
+nav{position:absolute;top:0;left:0;right:0;z-index:6;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 22px}
+.logo{background:var(--cream);border-radius:8px;padding:5px 12px;display:block}
+.logo img{display:block;height:36px;width:auto}
+.links{display:flex;gap:30px;font-size:12px;font-weight:500}
+.links a{text-decoration:none;opacity:.9}.links a:hover{color:var(--gold)}
+@media(max-width:760px){.links{display:none}}
+.hero h1{position:absolute;z-index:5;left:clamp(20px,4vw,44px);top:clamp(110px,16vh,150px);font-size:clamp(46px,10.5vw,128px);text-transform:uppercase}
+.hero h1 i{display:block;text-transform:none;font-size:.42em;letter-spacing:0;margin-bottom:.1em;color:var(--blush)}
+.hsub{position:absolute;z-index:5;right:26px;top:118px;max-width:220px;font-size:12px;opacity:.85}
+.chips{position:absolute;z-index:5;right:26px;bottom:120px;display:grid;gap:10px;width:132px}
+.chip{background:rgba(246,235,221,.16);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(246,235,221,.25);border-radius:14px;padding:10px 12px;text-align:center}
+.chip b{display:block;font-size:19px;line-height:1.1}.chip span{font-size:10.5px;opacity:.85}
+@media(max-width:860px){.chips,.hsub{display:none}}
+.notch{position:absolute;z-index:7;left:50%;bottom:0;translate:-50% 0;background:var(--wine);padding:12px 14px 0;border-radius:26px 26px 0 0}
+.notch .pill{margin-bottom:10px}
+
+/* flowers: open, then sway */
+.fl{position:absolute;z-index:3;width:var(--w);left:var(--x);bottom:var(--y);pointer-events:none;scale:0;opacity:0;transform-origin:50% 55%;animation:open 1.5s calc(var(--d) * 1s) cubic-bezier(.2,.9,.3,1.25) paused forwards,sway 6s calc(var(--d) * 1s + 1.5s) ease-in-out paused infinite alternate}
+.fl.lv{z-index:2;width:70px;transform-origin:50% 100%}
+body.ready .fl{animation-play-state:running}
+@keyframes open{from{scale:0;opacity:0;rotate:-40deg}to{scale:1;opacity:1;rotate:0deg}}
+@keyframes sway{from{rotate:-3deg}to{rotate:4deg}}
+.b1{--p1:#F4CDD0;--p2:#E9A6B0;--p3:#D87B8D}
+.b2{--p1:#FCF2E4;--p2:#F1DDC3;--p3:#E2C29C}
+.b3{--p1:#D97A8C;--p2:#B9475E;--p3:#8F2440}
+.leaf{fill:var(--sage)}
+.tb{position:absolute;width:var(--w);left:var(--x);top:var(--y);animation:sway 7s ease-in-out infinite alternate}
+
+/* about */
+.sec{padding:96px 0 0}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px}
+.ul{font-size:12px;font-weight:600;text-decoration:underline;text-underline-offset:4px;white-space:nowrap}
+.about{display:grid;gap:40px;margin-top:34px;align-items:center}
+@media(min-width:860px){.about{grid-template-columns:1fr 1fr}}
+.about p{max-width:44ch;margin:0 0 26px;font-size:14px;color:#EBD9CB}
+.shot{position:relative;aspect-ratio:4/4.4;border-radius:24px;overflow:hidden;background:#5a4a2c}
+@media(min-width:860px){.shot{border-radius:24px 0 0 24px;margin-right:calc(-1 * max(20px,(100vw - 1120px)/2))}}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;display:block}
+.shot .chip{position:absolute;left:16px;bottom:16px;text-align:left;width:auto}
+
+/* work bento */
+.bento{display:grid;gap:12px;margin-top:34px}
+@media(min-width:860px){.bento{grid-template-columns:1.25fr 1fr 1fr;grid-template-rows:240px 240px}.t1{grid-row:span 2}.t4{grid-column:2/4}}
+.tile{position:relative;border-radius:22px;overflow:hidden;min-height:230px;display:flex;align-items:flex-end;padding:18px}
+.tile div{position:relative;z-index:3}
+.tile b{display:block;font-size:16px;line-height:1.2}.tile span{font-size:12px;opacity:.8}
+.t1{background:radial-gradient(80% 70% at 50% 30%,#A12A48,#4A0816)}
+.t2{background:var(--cream);color:var(--deep)}
+.t3{background:var(--blush);color:var(--deep)}
+.t4{background:var(--deep);box-shadow:inset 0 0 0 1px rgba(201,162,75,.6)}
+.t4 b{font-size:22px}
+@media(max-width:859px){.t1{min-height:340px}}
+
+/* stock */
+.stock{display:grid;gap:40px;align-items:start}
+@media(min-width:900px){.stock{grid-template-columns:.8fr 1.2fr}}
+.sub{max-width:46ch;color:#EBD9CB;margin:18px 0 0;font-size:14px}
+.panel{background:rgba(246,235,221,.07);border:1px solid rgba(201,162,75,.45);border-radius:22px;padding:26px}
+.tot{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:22px}
+.tot b{display:block;font-size:clamp(24px,4vw,38px);line-height:1;font-weight:600}
+.tot span{font-size:11.5px;color:#DCC6B8}
+.row{padding:14px 0;border-top:1px solid rgba(246,235,221,.14)}
+.row p{display:flex;justify-content:space-between;gap:10px;margin:0 0 9px;font-size:14px;flex-wrap:wrap}
+.row em{font-style:normal;color:#DCC6B8;font-size:12.5px}
+.bar{display:flex;height:9px;border-radius:9px;overflow:hidden;background:rgba(0,0,0,.25)}
+.bar i{display:block;width:0;transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+.a{background:var(--gold)}.o{background:var(--blush)}.p{background:repeating-linear-gradient(45deg,var(--cream) 0 3px,transparent 3px 6px)}
+.key{display:flex;gap:18px;font-size:12px;margin-top:16px;color:#DCC6B8;flex-wrap:wrap}
+.key span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:7px;background:var(--c)}
+.note{font-size:12px;color:#CDB5A8;margin:14px 0 0}
+
+/* rentals marketplace */
+.tools{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:30px 0 22px}
+#q{background:rgba(246,235,221,.08);border:1px solid rgba(246,235,221,.25);border-radius:999px;color:var(--cream);padding:11px 18px;font:inherit;font-size:13px;min-width:min(260px,100%)}
+.cats{display:flex;gap:8px;flex-wrap:wrap}
+.cat{background:none;border:1px solid rgba(246,235,221,.3);color:var(--cream);border-radius:999px;padding:8px 16px;font:inherit;font-size:12px;cursor:pointer}
+.cat.on{background:var(--cream);color:var(--deep);border-color:var(--cream)}
+.mk{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.prod{background:rgba(246,235,221,.07);border:1px solid rgba(201,162,75,.35);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s,border-color .3s}
+.prod:hover{transform:translateY(-4px);border-color:var(--gold)}
+.pimg{position:relative;aspect-ratio:4/3}
+.pimg img,.pimg svg{width:100%;height:100%;object-fit:cover;display:block}
+.pimg em{position:absolute;left:12px;top:12px;background:var(--cream);color:var(--deep);font-size:11px;font-style:normal;font-weight:600;padding:4px 10px;border-radius:999px}
+.pimg em.na{background:var(--deep);color:var(--blush)}
+.pbody{padding:16px;display:grid;gap:4px;justify-items:start}
+.pbody span{font-size:11px;opacity:.7;text-transform:uppercase;letter-spacing:.08em}
+.pbody h3{font-size:17px;margin:0;font-weight:600;line-height:1.25}
+.pbody p{margin:0 0 10px;font-size:13px}
+.empty{grid-column:1/-1;opacity:.8}
+/* contact */
+.contact{margin:96px 10px 10px;border-radius:30px;background:var(--deep);padding:84px 0 70px;position:relative;overflow:hidden}
+.contact .wrap{position:relative;z-index:4}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:60px;font-size:12px;color:#CDB5A8}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-delay:0s!important;transition-duration:.01s!important}html{scroll-behavior:auto}}
+.cta > a.pill {
+    display: inline-grid !important;
+    place-items: center !important;
+    height: 46px !important;
+    min-height: 46px !important;
+    padding: 0 22px !important;
+    line-height: 1 !important;
+    text-align: center !important;
+    vertical-align: middle;
+    box-sizing: border-box !important;
+}
+/* DECOR IMAGE PORTFOLIO */
+
+.t1.decor-clickable {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  isolation: isolate;
+}
+
+.decor-slideshow {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+.decor-slideshow img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.decor-slideshow img.active {
+  opacity: 1;
+}
+
+.decor-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    to top,
+    rgba(30, 5, 20, .85),
+    transparent 75%
+  );
+}
+
+.decor-caption {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  color: white;
+}
+
+.decor-caption b {
+  font-size: 22px;
+}
+
+.decor-caption span {
+  font-size: 13px;
+}
+
+.decor-caption small {
+  font-size: 11px;
+  margin-top: 8px;
+  letter-spacing: 1px;
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<ellipse id="pt" cx="0" cy="-27" rx="15" ry="27"/>
+<symbol id="bloom" viewBox="-60 -60 120 120">
+<g fill="var(--p3)"><use href="#pt"/><use href="#pt" transform="rotate(45)"/><use href="#pt" transform="rotate(90)"/><use href="#pt" transform="rotate(135)"/><use href="#pt" transform="rotate(180)"/><use href="#pt" transform="rotate(225)"/><use href="#pt" transform="rotate(270)"/><use href="#pt" transform="rotate(315)"/></g>
+<g fill="var(--p2)" transform="scale(.72)"><use href="#pt" transform="rotate(22)"/><use href="#pt" transform="rotate(82)"/><use href="#pt" transform="rotate(142)"/><use href="#pt" transform="rotate(202)"/><use href="#pt" transform="rotate(262)"/><use href="#pt" transform="rotate(322)"/></g>
+<g fill="var(--p1)" transform="scale(.46)"><use href="#pt"/><use href="#pt" transform="rotate(72)"/><use href="#pt" transform="rotate(144)"/><use href="#pt" transform="rotate(216)"/><use href="#pt" transform="rotate(288)"/></g>
+<circle r="5" fill="#C9A24B"/></symbol>
+<symbol id="lf" viewBox="0 0 40 100"><path d="M20 98C2 70 2 28 20 2c18 26 18 68 0 96z"/></symbol>
+</defs></svg>
+
+<div id="ld" aria-hidden="true"><div class="frame"><div class="plate"><img src="assets/logo.png" alt=""></div></div></div>
+
+<header class="hero" id="top" style="
+    background-image:
+        linear-gradient(rgba(60, 0, 20, 0.25), rgba(60, 0, 20, 0.25)),
+        url('assets/where-events-bloom.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+">
+ <nav>
+  <a class="logo" href="#top" aria-label="Topguest Events home"><img src="assets/logo.png" alt="Topguest Events"></a>
+  <div class="links"><a href="#about">About</a><a href="#work">Services</a><a href="#rentals">Rentals</a><a href="#contact">Contact</a></div>
+  <a class="pill sm" href="https://wa.me/2348166120105?text=Hello%20TOPGUEST%20EVENTS%2C%20I%20would%20like%20to%20request%20a%20quote%20for%20your%20event%20services.%20Please%20share%20your%20packages%20and%20pricing%20with%20me.">Request a quote</a>
+ </nav>
+ <h1><i>Where</i> <span class="hero-serif">Events Bloom</span></h1>
+ <p class="hsub">Decor, rentals and training for celebrations that feel effortless.</p>
+ <div class="chips"><a class="chip" href="https://wa.me/2348166120105?text=Hello%20Topguest%20Events%21%20I%27m%20interested%20in%20making%20a%20booking.%20Please%20share%20your%20services%20and%20availability." target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;">
+<b>Now booking</b>
+<span>Weddings &amp; events</span>
+<a class="chip" href="decor.html"><b>OUR</b><span>PORTFOLIO</span></a></div>
+
+ <svg class="fl lv" style="--x:20%;--y:6%;--d:1.3" viewBox="0 0 40 100"><use class="leaf" href="#lf" transform="rotate(-35 20 98)"/></svg>
+ <svg class="fl lv" style="--x:47%;--y:30%;--d:1.4" viewBox="0 0 40 100"><use class="leaf" href="#lf"/></svg>
+ <svg class="fl lv" style="--x:74%;--y:8%;--d:1.35" viewBox="0 0 40 100"><use class="leaf" href="#lf" transform="rotate(35 20 98)"/></svg>
+ <svg class="fl b2" style="--w:clamp(130px,18vw,260px);--x:-4%;--y:-2%;--d:1.0" viewBox="-60 -60 120 120"><use href="#bloom"/></svg>
+ <svg class="fl b1" style="--w:clamp(170px,26vw,360px);--x:10%;--y:-9%;--d:.7" viewBox="-60 -60 120 120"><use href="#bloom"/></svg>
+ <svg class="fl b3" style="--w:clamp(220px,34vw,460px);--x:33%;--y:-12%;--d:.5" viewBox="-60 -60 120 120"><use href="#bloom"/></svg>
+ <svg class="fl b1" style="--w:clamp(180px,28vw,380px);--x:60%;--y:-10%;--d:.8" viewBox="-60 -60 120 120"><use href="#bloom"/></svg>
+ <svg class="fl b2" style="--w:clamp(130px,19vw,270px);--x:84%;--y:-3%;--d:.9" viewBox="-60 -60 120 120"><use href="#bloom"/></svg>
+ <svg class="fl b2" style="--w:clamp(90px,12vw,170px);--x:27%;--y:17%;--d:1.2" viewBox="-60 -60 120 120"><use href="#bloom"/></svg>
+ <svg class="fl b3" style="--w:clamp(90px,12vw,170px);--x:66%;--y:20%;--d:1.15" viewBox="-60 -60 120 120"><use href="#bloom"/></svg>
+
+ <div class="notch"><a class="pill" href="#work">Discover our work</a></div>
+</header>
+
+<section class="sec" id="about">
+ <div class="wrap">
+  <div class="top"><h2>Every celebration begins <i>with a vision of beauty</i></h2><a class="ul" href="#about">ABOUT US</a></div>
+  <div class="about">
+   <div><p>Topguest Events styles weddings, birthdays and corporate occasions, hires out the pieces to do it yourself, and trains new decorators. Every room starts with a plan and ends with a feeling.</p><a class="pill sm out" href="#contact">Meet the team</a></div>
+   <div class="shot"><img src="assets/headshot.jpg" alt="Creative Director of Topguest Events"><div class="chip"><b>Creative Director</b><span>Topguest Events</span></div></div>
+  </div>
+ </div>
+</section>
+
+<section class="sec" id="work">
+ <div class="wrap">
+  <div class="top"><h2>Styled with <i>purpose</i></h2><a class="pill sm out" href="#contact">Book a date</a></div>
+  <div class="bento">
+  <article class="tile t1 decor-clickable" id="decorPortfolio">
+
+  <div class="decor-slideshow">
+    <img
+      src="assets/where-events-bloom.jpg"
+      alt="Luxury wedding decoration"
+      class="decor-preview"
+    >
+    <div class="decor-overlay"></div>
+  </div>
+
+  <div class="decor-copy">
+    <b>Decor</b>
+    <span>Weddings, birthdays and corporate events</span>
+    <small>Explore our work ↗</small>
+  </div>
+
+</article>
+
+</article>
+  <article class="tile t2 rentals-clickable" onclick="window.location.href='rentals.html'" role="link" tabindex="0" onkeydown="if(event.key==='Enter'){window.location.href='rentals.html'}">
+
+  <img
+    src="assets/rentals-preview.jpg"
+    alt="Floral rental collection"
+    class="rentals-preview"
+  >
+
+  <div class="rentals-copy">
+    <b>Rentals</b>
+    <span>Florals, stands and backdrops to hire</span>
+    <small>Explore our rentals ↗</small>
+  </div>
+
+</article>
+<a href="academy.html" class="tile t3" style="text-decoration:none; color:inherit;">
+  <img
+    src="assets/training-preview.jpg"
+    alt="Event styling and training"
+    class="training-preview"
+  >
+
+  <div class="training-copy">
+    <b>Training</b>
+    <span>Hands-on classes in floral styling</span>
+    <small>Explore our training ↗</small>
+  </div>
+</a>
+
+<article class="tile t4 admin-entry"
+  onclick="window.location.href='login.html'"
+  role="link"
+  tabindex="0"
+  onkeydown="if(event.key==='Enter') window.location.href='login.html'">
+
+  <div class="admin-entry-content">
+    <span class="admin-label">PRIVATE ACCESS</span>
+
+    <h3>Every rental piece is counted.</h3>
+
+    <p>
+      Manage your rental inventory, track bookings,
+      check availability and keep every item accounted for.
+    </p>
+
+    <span class="admin-entry-link">
+      Open Admin Dashboard ↗
+    </span>
+  </div>
+
+</article>
+  </div>
+ </div>
+</section>
+<div class="decor-modal" id="decorModal">
+
+  <button class="decor-close" id="decorClose">&times;</button>
+
+  <button class="decor-prev" id="decorPrev">&#10094;</button>
+
+  <img id="decorModalImage" src="" alt="Event decoration portfolio">
+
+  <button class="decor-next" id="decorNext">&#10095;</button>
+
+  <div class="decor-counter" id="decorCounter"></div>
+
+</div>
+
+<section class="sec" id="rentals">
+  <div class="wrap">
+
+    <div class="top">
+      <h2>Rent the pieces, <i>keep the look</i></h2>
+      <a class="pill sm out" href="#contact">Ask about a date</a>
+    </div>
+
+    <div class="tools">
+      <input id="q" type="search" placeholder="Search rentals" aria-label="Search rentals">
+      <div id="cats" class="cats"></div>
+    </div>
+
+    <div class="mk" id="mk"></div>
+
+    <div class="collection-link">
+      <a class="pill sm out" href="rentals.html">Explore Full Collection ↗</a>
+    </div>
+
+  </div>
+</section>
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <span class="review-label">CLIENT EXPERIENCES</span>
+
+    <h2>We'd love to hear <i>your story.</i></h2>
+
+    <p class="review-intro">
+      Have we made your celebration special?
+      Share your experience with Topguest Events.
+    </p>
+
+    <form id="reviewForm">
+      <input
+        type="text"
+        id="reviewName"
+        placeholder="Your name"
+        required
+      >
+
+      <select id="reviewService" required>
+        <option value="">Select a service</option>
+        <option>Event Decoration</option>
+        <option>Event Rentals</option>
+        <option>Event Training</option>
+      </select>
+
+      <select id="reviewRating" required>
+        <option value="">Give us a rating</option>
+        <option value="5 stars">★★★★★ Excellent</option>
+        <option value="4 stars">★★★★ Very Good</option>
+        <option value="3 stars">★★★ Good</option>
+        <option value="2 stars">★★ Needs Improvement</option>
+        <option value="1 star">★ Poor</option>
+      </select>
+
+      <textarea
+        id="reviewMessage"
+        placeholder="Tell us about your experience..."
+        rows="5"
+        required
+      ></textarea>
+
+      <button type="submit" class="pill">
+        Submit Your Review ↗
+      </button>
+    </form>
+  </div>
+</section>
+<section class="contact" id="contact">
+  <svg class="fl b3" style="--w:clamp(180px,26vw,340px);--x:calc(100% - 150px);--y:-90px" viewBox="-60 -60 120 120"><use href="#bloom"/></svg>
+
+  <div class="wrap">
+    <h2>Planning something? <i>Tell us the date.</i></h2>
+
+    <p class="sub">
+      Tell us about your event, and let's create something beautiful together.
+      Contact us for enquiries, bookings and reservations.
+    </p>
+
+    <div class="cta">
+      <a class="pill"
+         href="https://wa.me/2348166120105?text=Hello%20Topguest%20Events%2C%20I%20would%20like%20to%20make%20an%20enquiry."
+         target="_blank" rel="noopener">
+        Request a quote
+      </a>
+
+      <a class="pill out"
+         href="https://wa.me/2348166120105"
+         target="_blank" rel="noopener">
+        Message on WhatsApp
+      </a>
+    </div>
+
+    <div class="contact-details">
+      <p><strong>📞 Phone:</strong>
+        <a href="tel:+2348166120105">+234 816 612 0105</a>
+      </p>
+
+      <p><strong>✉️ Email:</strong>
+        <a href="mailto:Flakison@yahoo.co.uk">Flakison@yahoo.co.uk</a>
+      </p>
+
+      <p><strong>📍 Address:</strong>
+        <a href="https://www.google.com/maps/search/?api=1&query=No+36+Alageli+Bus+Stop+Igbogbo+Road+Ikorodu">
+          No. 36 Alageli Bus Stop, Igbogbo Road, Ikorodu
+        </a>
+      </p>
+    </div>
+
+    <footer>
+      <span>© 2026 Topguest Events</span>
+      <span>Decor · Rentals · Training</span>
+    </footer>
+  </div>
+</section>
+
+<script src="js/store.js"></script>
+<script>
+const WA='https://wa.me/2348166120105'; // TODO: add her number, e.g. https://wa.me/234XXXXXXXXXX
+const grid=document.getElementById('mk'),chips=document.getElementById('cats'),q=document.getElementById('q');
+let all=[],cat='All';
+
+function draw(){
+ const t=q.value.trim().toLowerCase(),
+ list=all.filter(i=>(cat==='All'||i.category===cat)&&(!t||(i.name+' '+i.category).toLowerCase().includes(t))).slice(0,8);
+
+ grid.innerHTML =
+ (list.length
+  ? list.map(i=>{
+      return `<article class="prod">
+        <div class="pimg">${thumb(i)}</div>
+        <div class="pbody">
+          <span>${esc(i.category)}</span>
+          <h3>${esc(i.name)}</h3>
+          <p><b>${money(i.price)}</b> / day</p>
+          <a class="pill sm" href="${WA}?text=${encodeURIComponent('Hi, I would like to rent: '+i.name)}" target="_blank" rel="noopener">Request to rent</a>
+        </div>
+      </article>`;
+    }).join('')
+  : '<p class="empty">No pieces match your search.</p>') +
+
+ `<a class="pill sm out" href="rentals.html"
+    style="grid-column:1/-1;justify-self:center;margin-top:20px">
+    
+  </a>`;
+}
+
+async function load(){
+ all=await Store.list();
+ chips.innerHTML=['All',...new Set(all.map(i=>i.category))].map(c=>`<button class="cat${c===cat?' on':''}" data-c="${esc(c)}">${esc(c)}</button>`).join('');
+ draw();
+}
+chips.onclick=e=>{const b=e.target.closest('button');if(b){cat=b.dataset.c;load()}};
+q.oninput=draw;addEventListener('storage',load);load();
+const ld=document.getElementById('ld'),go=()=>{ld.classList.add('out');document.body.classList.add('ready');setTimeout(()=>ld.remove(),1300)};
+setTimeout(go,matchMedia('(prefers-reduced-motion:reduce)').matches?0:2500);
+</script>
+<style>
+.decor-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(15, 5, 12, .96);
+  align-items: center;
+  justify-content: center;
+}
+
+.decor-modal.open {
+  display: flex;
+}
+
+.decor-modal img {
+  max-width: 85%;
+  max-height: 82vh;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.decor-modal button {
+  position: absolute;
+  border: none;
+  background: rgba(255,255,255,.15);
+  color: white;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.decor-close {
+  top: 25px;
+  right: 25px;
+}
+
+.decor-prev {
+  left: 25px;
+}
+
+.decor-next {
+  right: 25px;
+}
+
+.decor-counter {
+  position: absolute;
+  bottom: 25px;
+  color: white;
+  font-size: 13px;
+}
+
+@media(max-width:600px) {
+  .decor-modal img {
+    max-width: 94%;
+  }
+
+  .decor-prev { left: 8px; }
+  .decor-next { right: 8px; }
+}
+.decor-preview {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  z-index: 0;
+}
+
+.tile.t1 > div {
+  position: absolute;
+  z-index: 2;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px;
+  background: linear-gradient(
+    to top,
+    rgba(40, 5, 20, 0.85),
+    transparent
+  );
+  color: white;
+}
+.tile.t1 {
+  position: relative;
+  overflow: hidden;
+}
+
+.tile.t1 .decor-preview {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.tile.t1 .decor-copy {
+  position: absolute;
+  z-index: 5;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 65px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #fff;
+  background: linear-gradient(
+    to top,
+    rgba(35, 5, 20, 0.9),
+    transparent
+  );
+}
+
+.tile.t1 .decor-copy b {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.tile.t1 .decor-copy span {
+  font-size: 13px;
+  color: #fff;
+}
+
+.tile.t1 .decor-copy small {
+  font-size: 11px;
+  margin-top: 5px;
+  color: #ffe6bd;
+}
+.tile.t2 {
+  position: relative;
+  overflow: hidden;
+}
+
+.tile.t2 .rentals-preview {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.tile.t2 .rentals-copy {
+  position: absolute;
+  z-index: 5;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 45px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  color: white;
+  background: linear-gradient(
+    to top,
+    rgba(35, 5, 20, .9),
+    transparent
+  );
+}
+
+.tile.t2 .rentals-copy b {
+  font-size: 20px;
+}
+
+.tile.t2 .rentals-copy span {
+  font-size: 12px;
+  color: white;
+}
+
+.tile.t2 .rentals-copy small {
+  font-size: 11px;
+  color: #ffe6bd;
+}
+.tile.t3 {
+  position: relative;
+  overflow: hidden;
+}
+
+.tile.t3 .training-preview {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.tile.t3 .training-copy {
+  position: absolute;
+  z-index: 5;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 45px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  color: white;
+  background: linear-gradient(
+    to top,
+    rgba(35, 5, 20, .9),
+    transparent
+  );
+}
+.admin-entry {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.admin-entry-content {
+  position: relative;
+  z-index: 2;
+  padding: 28px;
+  width: 100%;
+  color: #fff;
+}
+
+.admin-label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  opacity: .75;
+}
+
+.admin-entry-content h3 {
+  font-size: 25px;
+  margin: 12px 0;
+}
+
+.admin-entry-content p {
+  font-size: 13px;
+  line-height: 1.7;
+  max-width: 420px;
+  opacity: .85;
+}
+
+.admin-entry-link {
+  display: inline-block;
+  margin-top: 15px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #ffe2a3;
+}
+/* TOPGUEST EVENTS - Cascading card entrance */
+#work .bento.is-animated > article.tile {
+  animation: cardDrop 1s cubic-bezier(.2, .75, .3, 1) both;
+}
+
+#work .bento.is-animated > article.tile:nth-of-type(1) {
+  animation-delay: 0s;
+}
+
+#work .bento.is-animated > article.tile:nth-of-type(2) {
+  animation-delay: .2s;
+}
+
+#work .bento.is-animated > article.tile:nth-of-type(3) {
+  animation-delay: .4s;
+}
+
+#work .bento.is-animated > article.tile:nth-of-type(4) {
+  animation-delay: .6s;
+}
+
+@keyframes cardDrop {
+  from {
+    opacity: 0;
+    transform: translateY(-45px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #work .bento.is-animated > article.tile {
+    animation: none;
+  }
+}
+.fl {
+  animation: none !important;
+}
+.contact-details{
+  display:grid;
+  gap:12px;
+  margin:30px 0;
+  font-size:14px;
+  line-height:1.8;
+}
+
+.contact-details p{
+  color:inherit;
+}
+
+.contact-details a{
+  color:inherit;
+  text-decoration:none;
+}
+
+.contact-details a:hover{
+  text-decoration:underline;
+}
+.reviews{
+  padding:80px 0;
+  position:relative;
+}
+
+.review-label{
+  color:var(--cream);
+  font-size:11px;
+  letter-spacing:3px;
+}
+
+.reviews h2{
+  font-family:Georgia,serif;
+  font-size:clamp(32px,5vw,48px);
+  margin:18px 0;
+}
+
+.review-intro{
+  max-width:520px;
+  line-height:1.8;
+  margin-bottom:30px;
+}
+
+#reviewForm{
+  max-width:600px;
+  display:grid;
+  gap:15px;
+}
+
+#reviewForm input,
+#reviewForm select,
+#reviewForm textarea{
+  width:100%;
+  padding:15px;
+  border:1px solid rgba(246,235,221,.3);
+  border-radius:12px;
+  background:rgba(246,235,221,.08);
+  color:white;
+  font:inherit;
+}
+
+#reviewForm select option{
+  color:#390817;
+}
+
+#reviewForm textarea{
+  resize:vertical;
+}
+
+#reviewForm input::placeholder,
+#reviewForm textarea::placeholder{
+  color:#e5cbd1;
+}
+
+#reviewForm button{
+  cursor:pointer;
+  width:fit-content;
+}
+</style>
+
+<script>
+(() => {
+  const images = [
+    "assets/decor-1.jpg",
+    "assets/decor-2.jpg",
+    "assets/decor-3.jpg",
+    "assets/decor-4.jpg",
+    "assets/decor-5.jpg"
+  ];
+
+  const card = document.getElementById("decorPortfolio");
+  const modal = document.getElementById("decorModal");
+  const modalImage = document.getElementById("decorModalImage");
+  const counter = document.getElementById("decorCounter");
+  const preview = card.querySelector(".decor-slideshow");
+
+  let current = 0;
+  let previewIndex = 0;
+
+  function showPreview(index) {
+    preview.innerHTML = "";
+
+    const img = document.createElement("img");
+    img.src = images[index];
+    img.alt = "Event decoration portfolio";
+    img.className = "active";
+
+    preview.appendChild(img);
+  }
+
+
+
+  function showImage(index) {
+    current = (index + images.length) % images.length;
+    modalImage.src = images[current];
+    counter.textContent = `${current + 1} / ${images.length}`;
+  }
+
+ card.addEventListener("click", () => {
+  window.location.href = "decor.html";
+});
+
+  document.getElementById("decorNext").addEventListener("click", () => {
+    showImage(current + 1);
+  });
+
+  document.getElementById("decorPrev").addEventListener("click", () => {
+    showImage(current - 1);
+  });
+
+  function closeModal() {
+    modal.classList.remove("open");
+    document.body.style.overflow = "";
+  }
+
+  document.getElementById("decorClose").addEventListener("click", closeModal);
+
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (!modal.classList.contains("open")) return;
+
+    if (e.key === "Escape") closeModal();
+    if (e.key === "ArrowRight") showImage(current + 1);
+    if (e.key === "ArrowLeft") showImage(current - 1);
+  });
+
+  showPreview(1);
+})();
+</script>
+<script>
+(() => {
+  const bento = document.querySelector("#work .bento");
+
+  if (!bento) return;
+
+  const cards = bento.querySelectorAll(":scope > article.tile");
+
+  if (cards.length !== 4) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+      bento.classList.add("is-animated");
+      observer.disconnect();
+    }
+  }, { threshold: 0.2 });
+
+  observer.observe(bento);
+})();
+</script>
+<script>
+document.getElementById('reviewForm').addEventListener('submit', function(e){
+  e.preventDefault();
+
+  const name = document.getElementById('reviewName').value.trim();
+  const service = document.getElementById('reviewService').value;
+  const rating = document.getElementById('reviewRating').value;
+  const message = document.getElementById('reviewMessage').value.trim();
+
+  const text = `Hello Topguest Events! I would like to submit a review.
+
+Name: ${name}
+Service: ${service}
+Rating: ${rating}
+
+My Review:
+${message}`;
+
+  window.open(
+    'https://wa.me/2348166120105?text=' + encodeURIComponent(text),
+    '_blank'
+  );
+});
+</script>
+</body>
+</html>
