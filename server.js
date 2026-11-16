@@ -33,7 +33,7 @@ if (
   process.exit(1);
 }
 
-app.use(express.json({ limit: "10mb" }));
+app.use(express.json({ limit: "100mb" }));
 
 app.use(
   session({
