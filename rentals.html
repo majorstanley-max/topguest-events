@@ -5,6 +5,78 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Rentals | Topguest Events</title>
 
+
+.rental-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0,0,0,0.85);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.rental-modal.active {
+  display: flex;
+}
+
+.rental-modal-content {
+  position: relative;
+  background: #fff;
+  color: #222;
+  width: 100%;
+  max-width: 650px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 14px;
+}
+
+.rental-modal-content > img {
+  display: block;
+  width: 100%;
+  max-height: 480px;
+  object-fit: contain;
+  background: #f5f5f5;
+}
+
+.modal-product-details {
+  padding: 24px;
+}
+
+.modal-product-details h2 {
+  margin: 10px 0;
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: #fff;
+  color: #222;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.modal-product-details .rent-btn {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 14px 22px;
+  text-decoration: none;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.prod {
+  cursor: pointer;
+}
+
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 
@@ -294,6 +366,56 @@ async function loadRentals(){
   renderCategories();
   renderProducts();
 }
+
+const rentalModal = document.getElementById('rentalModal');
+
+products.addEventListener('click', function(e) {
+  if (e.target.closest('.rent-btn')) {
+    // Open the product popup when the card's button is clicked.
+  }
+
+  const card = e.target.closest('.prod');
+  if (!card) return;
+
+  const item = inventory.find(
+    product => String(product.id) === card.dataset.productId
+  );
+
+  if (!item) return;
+
+  document.getElementById('modalProductImage').src = item.image;
+  document.getElementById('modalProductName').textContent = item.name;
+  document.getElementById('modalProductCategory').textContent = item.category;
+  document.getElementById('modalProductAvailability').textContent =
+    avail(item) + ' pieces available';
+  document.getElementById('modalProductPrice').textContent =
+    money(item.price);
+
+  document.getElementById('modalRentButton').href =
+    'https://wa.me/2348166120105?text=' +
+    encodeURIComponent(
+      `Hello Topguest Events, I would like to rent ${item.name} (${item.category}). Please confirm availability and booking details.`
+    );
+
+  rentalModal.classList.add('active');
+});
+
+document.getElementById('closeRentalModal').addEventListener('click', () => {
+  rentalModal.classList.remove('active');
+});
+
+rentalModal.addEventListener('click', (e) => {
+  if (e.target === rentalModal) {
+    rentalModal.classList.remove('active');
+  }
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    rentalModal.classList.remove('active');
+  }
+});
+
 
 search.addEventListener('input', renderProducts);
 loadRentals();
