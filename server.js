@@ -53,6 +53,14 @@ function requireAdmin(req, res, next) {
   return res.redirect("/login.html");
 }
 
+// Check admin session
+app.get("/api/admin/session", (req, res) => {
+  if (req.session && req.session.isAdmin === true) {
+    return res.json({ authenticated: true });
+  }
+
+  return res.status(401).json({ authenticated: false });
+});
 // Admin login
 app.post("/api/admin/login", async (req, res) => {
   try {
