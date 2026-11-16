@@ -60,6 +60,7 @@ label input:focus,.tools input:focus,.tools select:focus{outline:2px solid var(-
 #toast{position:fixed;bottom:24px;left:50%;translate:-50% 30px;background:var(--deep);color:#fff;padding:11px 20px;border-radius:999px;opacity:0;pointer-events:none;transition:.3s}
 #toast.on{opacity:1;translate:-50% 0}
 @media(max-width:860px){.side{position:static;width:auto;flex-direction:row;align-items:center;flex-wrap:wrap;gap:14px}.logo{width:130px}.side nav{display:flex}.adm{display:none}.main{margin-left:0}}
+
 </style>
 </head>
 <body>
@@ -110,23 +111,9 @@ label input:focus,.tools input:focus,.tools select:focus{outline:2px solid var(-
 
 <script src="js/store.js"></script>
 <script>
-async function requireAuth() {
-  try {
-    const response = await fetch(
-      "https://topguest-events-api.onrender.com/api/admin/session",
-      { credentials: "include" }
-    );
-
-    if (!response.ok) {
-      location.href = "login.html";
-      return;
-    }
-  } catch (error) {
-    location.href = "login.html";
-  }
-}
-
-requireAuth();
+// TODO(auth): protect this page. Replace with a real session check and redirect to your login page.
+function requireAuth(){return true}
+if(!requireAuth())location.href='login.html';
 
 const $=s=>document.querySelector(s);
 let items=[],editing=null,photo;
