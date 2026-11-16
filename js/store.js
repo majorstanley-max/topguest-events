@@ -21,12 +21,63 @@ const Store = (() => {
     try { const r = JSON.parse(localStorage.getItem(KEY)); if (Array.isArray(r)) return r; } catch (e) {}
     write(seed); return seed.map(x => ({ ...x }));
   };
-  return {
-    list: async () => read(),
-    add: async it => { const a = read(); it.id = 'i' + Date.now().toString(36); a.unshift(it); write(a); return it; },
-    update: async (id, patch) => { const a = read(), i = a.findIndex(x => x.id === id); if (i < 0) return null; a[i] = { ...a[i], ...patch }; write(a); return a[i]; },
-    remove: async id => { write(read().filter(x => x.id !== id)); return true; }
-  };
+return {
+  list: async () => {
+    const response = await fetch(
+      "https://topguest-events-api.onrender.com/api/inventory"
+    );
+
+    if (!response.ok) throw new Error("Unable to load rental inventory.");
+
+    return await response.json();
+  },
+
+  add: async it => {
+    const response = await fetch(
+      "https://topguest-events-api.onrender.com/api/inventory",
+      {
+        method: "POST",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(it)
+      }
+    );
+
+    if (!response.ok) throw new Error("Unable to add rental item.");
+
+    return await response.json();
+  },
+
+  update: async (id, patch) => {
+    const response = await fetch(
+      `https://topguest-events-api.onrender.com/api/inventory/${encodeURIComponent(id)}`,
+      {
+        method: "PATCH",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(patch)
+      }
+    );
+
+    if (!response.ok) throw new Error("Unable to update rental item.");
+
+    return await response.json();
+  },
+
+  remove: async id => {
+    const response = await fetch(
+      `https://topguest-events-api.onrender.com/api/inventory/${encodeURIComponent(id)}`,
+      {
+        method: "DELETE",
+        credentials: "include"
+      }
+    );
+
+    if (!response.ok) throw new Error("Unable to delete rental item.");
+
+    return true;
+  }
+};
 })();
 
 const avail = i => Math.max(0, i.total - i.out - i.pending);

@@ -4,10 +4,15 @@ const cors = require("cors");
 const bcrypt = require("bcryptjs");
 const dotenv = require("dotenv");
 const path = require("path");
+const { createClient } = require("@supabase/supabase-js");
 
 dotenv.config({ path: ".env.local" });
 
 const app = express();
+const supabase = createClient(
+  process.env.SUPABASE_URL,
+  process.env.SUPABASE_SERVICE_ROLE_KEY
+);
 app.set("trust proxy", 1);
 app.use(cors({
   origin: [
@@ -120,6 +125,89 @@ app.post("/api/admin/logout", (req, res) => {
   });
 });
 
+// RENTALS INVENTORY API
+
+// Get all rental items (public)
+app.get("/api/inventory", async (req, res) => {
+  const { data, error } = await supabase
+    .from("rentals_inventory")
+    .select("*")
+    .order("created_at", { ascending: false });
+
+  if (error) {
+    return res.status(500).json({ message: "Unable to load inventory." });
+  }
+
+  res.json(data);
+});
+
+// Add rental item (admin only)
+app.post("/api/inventory", requireAdmin, async (req, res) => {
+  const item = {
+    id: req.body.id || require("crypto").randomUUID(),
+    name: req.body.name,
+    sku: req.body.sku || "",
+    category: req.body.category || "",
+    price: Number(req.body.price) || 0,
+    total: Number(req.body.total) || 0,
+    out: Number(req.body.out) || 0,
+    pending: Number(req.body.pending) || 0,
+    image: req.body.image || ""
+  };
+
+  if (!item.name) {
+    return res.status(400).json({ message: "Item name is required." });
+  }
+
+  const { data, error } = await supabase
+    .from("rentals_inventory")
+    .insert(item)
+    .select()
+    .single();
+
+  if (error) {
+    return res.status(500).json({ message: "Unable to add item." });
+  }
+
+  res.status(201).json(data);
+});
+
+// Update rental item (admin only)
+app.patch("/api/inventory/:id", requireAdmin, async (req, res) => {
+  const allowed = ["name", "sku", "category", "price", "total", "out", "pending", "image"];
+  const patch = {};
+
+  for (const key of allowed) {
+    if (req.body[key] !== undefined) patch[key] = req.body[key];
+  }
+
+  const { data, error } = await supabase
+    .from("rentals_inventory")
+    .update({ ...patch, updated_at: new Date().toISOString() })
+    .eq("id", req.params.id)
+    .select()
+    .single();
+
+  if (error) {
+    return res.status(500).json({ message: "Unable to update item." });
+  }
+
+  res.json(data);
+});
+
+// Delete rental item (admin only)
+app.delete("/api/inventory/:id", requireAdmin, async (req, res) => {
+  const { error } = await supabase
+    .from("rentals_inventory")
+    .delete()
+    .eq("id", req.params.id);
+
+  if (error) {
+    return res.status(500).json({ message: "Unable to delete item." });
+  }
+
+  res.json({ success: true });
+});
 // Protect the dashboard before serving static files
 app.get("/admin.html", requireAdmin, (req, res) => {
   res.sendFile(path.join(__dirname, "admin.html"));
