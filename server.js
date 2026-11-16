@@ -165,9 +165,10 @@ app.post("/api/inventory", requireAdmin, async (req, res) => {
     .select()
     .single();
 
-  if (error) {
-    return res.status(500).json({ message: "Unable to add item." });
-  }
+ if (error) {
+  console.error("SUPABASE INVENTORY INSERT ERROR:", error);
+  return res.status(500).json({ message: "Unable to add item." });
+}
 
   res.status(201).json(data);
 });
