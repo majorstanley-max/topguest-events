@@ -317,7 +317,6 @@ function renderCategories(){
   });
 }
 
-
 function renderProducts(){
   const term = search.value.trim().toLowerCase();
 
@@ -343,18 +342,28 @@ function renderProducts(){
   }
 
   products.innerHTML = filtered.map(item => `
-    <article class="prod" data-product-id="${esc(item.id)}" role="button" tabindex="0">
+    <article class="prod"
+      data-product-id="${esc(item.id)}"
+      style="cursor:pointer;">
+
       <div class="pimg">
         ${thumb(item)}
       </div>
+
       <div class="pbody">
         <span>${esc(item.category)}</span>
         <h3>${esc(item.name)}</h3>
         <p>${avail(item)} pieces available</p>
         <div class="price">${money(item.price)}</div>
-        <button class="rent-btn" type="button">
-          View Product
-        </button>
+
+        <a class="rent-btn"
+          href="https://wa.me/2348166120105?text=${encodeURIComponent(
+            `Hello Topguest Events, I would like to rent ${item.name} (${item.category}). Please confirm availability and booking details.`
+          )}"
+          target="_blank"
+          rel="noopener noreferrer">
+          Request to Rent
+        </a>
       </div>
     </article>
   `).join('');
