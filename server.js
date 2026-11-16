@@ -1,5 +1,6 @@
 const express = require("express");
 const session = require("express-session");
+const cors = require("cors");
 const bcrypt = require("bcryptjs");
 const dotenv = require("dotenv");
 const path = require("path");
@@ -7,6 +8,15 @@ const path = require("path");
 dotenv.config({ path: ".env.local" });
 
 const app = express();
+app.set("trust proxy", 1);
+app.use(cors({
+  origin: [
+    "https://topguest-events.pages.dev",
+    "https://topguestevents.com.ng",
+    "https://www.topguestevents.com.ng"
+  ],
+  credentials: true
+}));
 const PORT = process.env.PORT || 3000;
 
 if (
@@ -28,8 +38,8 @@ app.use(
     saveUninitialized: false,
     cookie: {
       httpOnly: true,
-      secure: false,
-      sameSite: "lax",
+      secure: true,
+      sameSite: "none",
       maxAge: 2 * 60 * 60 * 1000
     }
   })
