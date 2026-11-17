@@ -509,8 +509,7 @@ function openRentalProduct(card) {
 
   modalName.textContent = item.name;
   modalCategory.textContent = item.category;
-  modalAvailability.textContent =
-    avail(item) + ' pieces available';
+  modalAvailability.style.display = 'none';
 
   modalPrice.textContent = money(item.price);
 
